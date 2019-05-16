@@ -1,6 +1,6 @@
 # partner-gifter
 TERA-proxy module for TERA Online. Automatically give gift to your partner and keep them happy!  
-#Partner #Pet #Companion
+#partner #companion #pet #pet-feeder
 
 ## Command
 List of in-game commands (use in /proxy or /8 channel):  
@@ -9,11 +9,11 @@ List of in-game commands (use in /proxy or /8 channel):
 `partnergifter find` - finds out the item id of the gift  
 
 ## Installation
-- put `partner-gifter` folder into `mods` folder
-- put files in `defs` into `node_modules\tera-data\protocol\` folder
-- put files in `opcodes` into `node_modules\tera-data\map\` folder
+- Put `partner-gifter` folder into `mods` folder
+- Put files in `defs` into `node_modules\tera-data\protocol\` folder
+- Put files in `opcodes` into `node_modules\tera-data\map\` folder
 
 ## Notes
-- if there are no opcodes for your region, get them yourself using https://github.com/SoliaRdi/PacketsLogger
-- modify the config file to customize settings
-- modify the gifts file to customize which gifts to use
+- If there are no opcodes for your region, get them yourself using https://github.com/SoliaRdi/PacketsLogger
+- Modify the config file to customize settings
+- Modify the gifts file to customize which gifts to use
