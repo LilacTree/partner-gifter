@@ -4,9 +4,9 @@ TERA-proxy module for TERA Online. Automatically give gift to your partner and k
 
 ## Command
 List of in-game commands (use in /proxy or /8 channel):  
-`partnergifter` - toggles module (default: true)  
-`partnergifter notice` - toggles notice (default: false)  
-`partnergifter find` - finds out the item id of the gift  
+- `partnergifter` - toggles module (default: true)
+- `partnergifter notice` - toggles notice (default: false)
+- `partnergifter find` - finds out the item id of the gift
 
 ## Installation
 - Put `partner-gifter` folder into `mods` folder
