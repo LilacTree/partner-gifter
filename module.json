@@ -1,0 +1,12 @@
+{
+    "disableAutoUpdate": false,
+    "name": "partner-gifter",
+    "author": "Lilac",
+    "description": "Automatically give gift to your partner and keep them happy!",
+    "version": "5/16/2019",
+    "options": {
+        "niceName": "Partner Gifter"
+    },
+    "servers": ["https://raw.githubusercontent.com/LilacTree/partner-gifter/master/"],
+    "supportUrl": "https://github.com/LilacTree/partner-gifter/issues"
+}
