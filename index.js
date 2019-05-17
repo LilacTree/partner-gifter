@@ -18,7 +18,7 @@ module.exports = function PartnerGifter(mod) {
 		
 	command.add('partnergifter', {
 		$none() {
-            enabled = !enabled;
+			enabled = !enabled;
 			command.message(`Partner Gifter Mod is now: ${enabled ? "enabled" : "disabled"}.`);
 		},
 		$default() {
@@ -46,9 +46,9 @@ module.exports = function PartnerGifter(mod) {
 	});
 	
 	mod.hook('S_INVEN', 18, (event) => {
-        if (!enabled) return;
+		if (!enabled) return;
 		
-        invenItems = event.first ? event.items : invenItems.concat(event.items);
+		invenItems = event.first ? event.items : invenItems.concat(event.items);
 		
 		for (let i = 0; i < giftList.length; i++) {
 			
@@ -59,7 +59,7 @@ module.exports = function PartnerGifter(mod) {
 			else {
 				giftList[i].amount = 0;
 			}
-        }
+		}
 	});
 	
 	mod.hook('S_REQUEST_SPAWN_SERVANT', 1, (event) => {
@@ -68,6 +68,7 @@ module.exports = function PartnerGifter(mod) {
 			partnerId = event.id;
 			
 			if (!enabled) return;
+			
 			processGifting(event.energy);
 		}
 	});
@@ -115,9 +116,9 @@ module.exports = function PartnerGifter(mod) {
     
 	function useServantFeedItem(gift) {
 		mod.toServer('C_USE_SERVANT_FEED_ITEM', 1, {
-            dbid: partnerDbid,
-            id: gift.id,
-            unk1: 0
+			dbid: partnerDbid,
+			id: gift.id,
+			unk1: 0
 		});
 	}
 	
