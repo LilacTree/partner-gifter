@@ -1,6 +1,6 @@
 # partner-gifter
 TERA-proxy module for TERA Online. Automatically give gift to your partner and keep them happy!  
-#partner #companion #pet #pet-feeder #pet-food
+#partner #companion #pet #partner-feeder #pet-feeder #pet-food
 
 ## Commands
 List of in-game commands (use in /proxy or /8 channel):  
