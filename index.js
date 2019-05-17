@@ -8,12 +8,13 @@ module.exports = function PartnerGifter(mod) {
 		notice = false;
 		
 	let	myGameId = null,
-		giftList = gifts,
+		invenItems = [],
 		partnerDbid = null,
 		partnerId = null,
 		findId = false,
 		onCd = false,
-		isGifting = false;
+		isGifting = false,
+		giftList = JSON.parse(JSON.stringify(gifts));
 		
 	command.add('partnergifter', {
         $none() {
@@ -36,6 +37,7 @@ module.exports = function PartnerGifter(mod) {
 	mod.hook('S_LOGIN', 13, (event) => {
 		loadConfig();
 		myGameId = event.gameId;
+		invenItems = [];
 		partnerDbid = null;
 		partnerId = null;
 		findId = false;
@@ -46,17 +48,17 @@ module.exports = function PartnerGifter(mod) {
 	mod.hook('S_INVEN', 18, (event) => {
         if (!enabled) return;
 		
+        invenItems = event.first ? event.items : invenItems.concat(event.items);
+		
 		for (let i = 0; i < giftList.length; i++) {
-			giftList[i].amount = 0;
-		}
-
-        let invenItems = event.items;
-        for (let i = 0; i < invenItems.length; i++) {
-            for (let j = 0; j < giftList.length; j++) {
-                if (giftList[j].id == invenItems[i].id) {
-                    giftList[j].amount = invenItems[i].amount;
-                }
-            }
+			
+			if (invenItems.filter(function(a) { return a.id === giftList[i].id; }).length > 0) {
+				let invenIndex = invenItems.findIndex(a => a.id === giftList[i].id);
+				giftList[i].amount = invenItems[invenIndex].amount;
+			}
+			else {
+				giftList[i].amount = 0;
+			}
         }
     });
 	
