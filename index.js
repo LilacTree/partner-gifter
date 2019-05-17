@@ -3,7 +3,7 @@ module.exports = function PartnerGifter(mod) {
 	const config = require('./config.json');
 	const gifts = require('./gifts');
 	
-    let	enabled = true,
+	let	enabled = true,
 		minEnergy = 80,
 		notice = false;
 		
@@ -17,7 +17,7 @@ module.exports = function PartnerGifter(mod) {
 		giftList = JSON.parse(JSON.stringify(gifts));
 		
 	command.add('partnergifter', {
-        $none() {
+		$none() {
             enabled = !enabled;
 			command.message(`Partner Gifter Mod is now: ${enabled ? "enabled" : "disabled"}.`);
 		},
@@ -43,7 +43,7 @@ module.exports = function PartnerGifter(mod) {
 		findId = false;
 		onCd = false;
 		isGifting = false;
-    });
+	});
 	
 	mod.hook('S_INVEN', 18, (event) => {
         if (!enabled) return;
@@ -60,7 +60,7 @@ module.exports = function PartnerGifter(mod) {
 				giftList[i].amount = 0;
 			}
         }
-    });
+	});
 	
 	mod.hook('S_REQUEST_SPAWN_SERVANT', 1, (event) => {
 		if (myGameId === event.owner && event.fellowship >= 1){
@@ -70,7 +70,7 @@ module.exports = function PartnerGifter(mod) {
 			if (!enabled) return;
 			processGifting(event.energy);
 		}
-    });
+	});
 	
 	mod.hook('S_UPDATE_SERVANT_INFO', 1, (event) => {
 		if (!enabled) return;
@@ -78,7 +78,7 @@ module.exports = function PartnerGifter(mod) {
 		if(partnerDbid === event.dbid && partnerId === event.id && event.fellowship >= 1){
 			processGifting(event.energy);
 		}
-    });
+	});
 	
 	mod.hook('S_REQUEST_SERVANT_INFO_LIST', 'raw', () => {
 		if (!enabled) return;
@@ -86,40 +86,40 @@ module.exports = function PartnerGifter(mod) {
 		if (isGifting) {
 			return false;
 		}
-    });
+	});
 	
 	mod.hook('C_USE_SERVANT_FEED_ITEM', 1, (event) => {
 		if (findId){
 			command.message("Item ID: " + event.id);
 			findId = false;
 		}
-    });
+	});
 	
-    function giftPartner() {
-        for (let i = 0; i < giftList.length; i++) {
-            if (giftList[i].amount > 0) {
-                giftList[i].amount--;
-                onCd = true;
-                setTimeout(()=>{ onCd = false; }, giftList[i].cd * 1000);
+	function giftPartner() {
+		for (let i = 0; i < giftList.length; i++) {
+			if (giftList[i].amount > 0) {
+				giftList[i].amount--;
+				onCd = true;
+				setTimeout(()=>{ onCd = false; }, giftList[i].cd * 1000);
 				isGifting = true;
-                setTimeout(()=>{ isGifting = false; }, 250);
-                if (notice) {
+				setTimeout(()=>{ isGifting = false; }, 250);
+				if (notice) {
 					command.message('Gifted ' + giftList[i].name + '! You have <font color="#00FFFF">' + giftList[i].amount + '</font> remaining.');
 				}
 				useServantFeedItem(giftList[i]);
-                return;
-            }
-        }
-        command.message('<font color="#FDD017">Warning</font>: No gift found in your inventory!');
-    }
+				return;
+			}
+		}
+		command.message('<font color="#FDD017">Warning</font>: No gift found in your inventory!');
+	}
     
-    function useServantFeedItem(gift) {
-        mod.toServer('C_USE_SERVANT_FEED_ITEM', 1, {
+	function useServantFeedItem(gift) {
+		mod.toServer('C_USE_SERVANT_FEED_ITEM', 1, {
             dbid: partnerDbid,
             id: gift.id,
             unk1: 0
-        });
-    }
+		});
+	}
 	
 	function processGifting(energy) {
 		let partnerEnergyPercent = Math.round((energy/300)*1000)/10;
@@ -130,10 +130,10 @@ module.exports = function PartnerGifter(mod) {
 	}
 
 	function loadConfig() {
-        if (config) {
+		if (config) {
 			({enabled, minEnergy, notice} = config)
-        } else {
-            command.message("Error: Unable to load config.json - Using default values for now");
-        }
-    }
+		} else {
+			command.message("Error: Unable to load config.json - Using default values for now");
+		}
+	}
 }
