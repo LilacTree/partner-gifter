@@ -103,7 +103,7 @@ module.exports = function PartnerGifter(mod) {
                 setTimeout(()=>{ isGifting = false; }, 250);
 				useServantFeedItem(giftList[i]);
                 if (notice) {
-					command.message('Gifted ' + giftList[i].name + '! <font color="#00FFFF">' + giftList[i].amount + '</font> remaining.');
+					command.message('Gifted ' + giftList[i].name + '! You have <font color="#00FFFF">' + giftList[i].amount + '</font> remaining.');
 				}
                 return;
             }
