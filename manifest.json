@@ -9,7 +9,8 @@
 			"hash": "ad8ae36e364137e573bd5cf9fd53573570973661827118d2a1781a3bf46e0625"
 		},
 		"index.js": "6f3f06c8ae7d533db388a93cb3ae185b4d92855d14ca930310e115b7057fcaf0",
-		"module.json": "d8dede333afea0b2cedb9fdda75589d134fcbd0ee3fab926f7cff5ea5d0b9b2b"
+		"module.json": "d8dede333afea0b2cedb9fdda75589d134fcbd0ee3fab926f7cff5ea5d0b9b2b",
+		"README.MD": "800215615f66caa97333ce94f381ca3cb808402c4f393836db0b6f9f9a7a5612"
 	},
 	"defs": {
         "C_USE_SERVANT_FEED_ITEM": 1,
