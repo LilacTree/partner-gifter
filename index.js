@@ -49,9 +49,7 @@ module.exports = function PartnerGifter(mod) {
 		if (!enabled) return;
 		
 		invenItems = event.first ? event.items : invenItems.concat(event.items);
-		
 		for (let i = 0; i < giftList.length; i++) {
-			
 			if (invenItems.filter(function(a) { return a.id === giftList[i].id; }).length > 0) {
 				let invenIndex = invenItems.findIndex(a => a.id === giftList[i].id);
 				giftList[i].amount = invenItems[invenIndex].amount;
@@ -133,7 +131,8 @@ module.exports = function PartnerGifter(mod) {
 	function loadConfig() {
 		if (config) {
 			({enabled, minEnergy, notice} = config)
-		} else {
+		}
+		else {
 			command.message("Error: Unable to load config.json - Using default values for now");
 		}
 	}
