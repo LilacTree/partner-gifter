@@ -14,10 +14,6 @@ module.exports = function PartnerGifter(mod) {
 		findId = false,
 		onCd = false,
 		isGifting = false;
-	
-	for (let i = 0; i < giftList.length; i++) {
-		giftList[i].amount = 0;
-	}
 		
 	command.add('partnergifter', {
         $none() {
@@ -49,6 +45,10 @@ module.exports = function PartnerGifter(mod) {
 	
 	mod.hook('S_INVEN', 18, (event) => {
         if (!enabled) return;
+		
+		for (let i = 0; i < giftList.length; i++) {
+			giftList[i].amount = 0;
+		}
 
         let invenItems = event.items;
         for (let i = 0; i < invenItems.length; i++) {
@@ -101,10 +101,10 @@ module.exports = function PartnerGifter(mod) {
                 setTimeout(()=>{ onCd = false; }, giftList[i].cd * 1000);
 				isGifting = true;
                 setTimeout(()=>{ isGifting = false; }, 250);
-				useServantFeedItem(giftList[i]);
                 if (notice) {
 					command.message('Gifted ' + giftList[i].name + '! You have <font color="#00FFFF">' + giftList[i].amount + '</font> remaining.');
 				}
+				useServantFeedItem(giftList[i]);
                 return;
             }
         }
