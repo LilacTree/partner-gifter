@@ -103,12 +103,12 @@ module.exports = function PartnerGifter(mod) {
                 setTimeout(()=>{ isGifting = false; }, 250);
 				useServantFeedItem(giftList[i]);
                 if (notice) {
-					command.message('Gifted ' + giftList[i].name + '! ' + giftList[i].amount + ' remaining.');
+					command.message('Gifted ' + giftList[i].name + '! <font color="#00FFFF">' + giftList[i].amount + '</font> remaining.');
 				}
                 return;
             }
         }
-        command.message('Warning: No gift found in your inventory!');
+        command.message('<font color="#FDD017">Warning</font>: No gift found in your inventory!');
     }
     
     function useServantFeedItem(gift) {
