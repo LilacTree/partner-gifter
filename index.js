@@ -2,7 +2,7 @@ module.exports = function PartnerGifter(mod) {
 	const command = mod.command;
 	const config = require('./config.json');
 	const gifts = require('./gifts');
-
+	
     let	enabled = true,
 		minEnergy = 80,
 		notice = false;
