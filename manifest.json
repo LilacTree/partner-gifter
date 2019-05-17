@@ -9,8 +9,8 @@
 			"hash": "ad8ae36e364137e573bd5cf9fd53573570973661827118d2a1781a3bf46e0625"
 		},
 		"index.js": "ff1a796ba9a6d6e8df6e20aa18400832507c5aa9bd21f7a3885f72f6575d3cf3",
-		"module.json": "d8dede333afea0b2cedb9fdda75589d134fcbd0ee3fab926f7cff5ea5d0b9b2b",
-		"README.MD": "0f88a8d2a0dbf57823c78167463e9846c12e2971e75acc01de020ec278830639"
+		"module.json": "31d3b0d83b00d0096d0edb463da83143805e4a2c0175b70767584d0fa9746cf5",
+		"README.MD": "c57f256b8a1c4a1b9aac35c9044eea7286091e57546c015d21986b31d7a539ea"
 	},
 	"defs": {
         "C_USE_SERVANT_FEED_ITEM": 1,
