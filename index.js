@@ -19,7 +19,7 @@ module.exports = function PartnerGifter(mod) {
 	command.add('partnergifter', {
 		$none() {
 			enabled = !enabled;
-			command.message(`Partner Gifter Mod is now: ${enabled ? "enabled" : "disabled"}.`);
+			command.message(`Partner Gifter Module is now: ${enabled ? "enabled" : "disabled"}.`);
 		},
 		$default() {
 			command.message("Invalid command! See README for the list of valid commands")
