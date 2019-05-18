@@ -1,5 +1,5 @@
 {
 	"enabled": true,
-	"minEnergy": 80,
-	"notice": false
+	"notice": false,
+	"minEnergy": 80
 }
