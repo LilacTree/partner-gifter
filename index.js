@@ -125,7 +125,7 @@ module.exports = function PartnerGifter(mod) {
 	}
 	
 	function processGifting(energy) {
-		let partnerEnergyPercent = Math.round((energy/300)*1000)/10;
+		let partnerEnergyPercent = Math.round((Number(energy) / 300) * 1000) / 10;
 			
 		if (partnerEnergyPercent < minEnergy && !onCd) {
 			giftPartner();
