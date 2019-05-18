@@ -26,7 +26,7 @@ module.exports = function PartnerGifter(mod) {
 			command.message(`Partner Gifter Module is now: ${enabled ? "enabled" : "disabled"}.`);
 		},
 		$default() {
-			command.message("Invalid command! See README for the list of valid commands")
+			command.message("Invalid command! See README for the list of valid commands.")
 		},
 		notice() {
 			notice = !notice;
@@ -34,7 +34,7 @@ module.exports = function PartnerGifter(mod) {
 		},
 		find() {
 			findId = true;
-			command.message("Manually give gift to your partner to find out its item id");
+			command.message("Manually give gift to your partner to find out its Item ID.");
 		}
 	});
 	
