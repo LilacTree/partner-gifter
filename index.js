@@ -4,8 +4,8 @@ module.exports = function PartnerGifter(mod) {
 	const gifts = require('./gifts');
 	
 	let	enabled = true,
-		minEnergy = 80,
-		notice = false;
+		notice = false,
+		minEnergy = 80;
 		
 	let	myGameId = null,
 		invenItems = [],
@@ -15,6 +15,10 @@ module.exports = function PartnerGifter(mod) {
 		onCd = false,
 		isGifting = false,
 		giftList = JSON.parse(JSON.stringify(gifts));
+		
+	for (let i = 0; i < giftList.length; i++) {
+		giftList[i].amount = 0;
+	}
 		
 	command.add('partnergifter', {
 		$none() {
@@ -93,6 +97,14 @@ module.exports = function PartnerGifter(mod) {
 			findId = false;
 		}
 	});
+    
+	function useServantFeedItem(gift) {
+		mod.toServer('C_USE_SERVANT_FEED_ITEM', 1, {
+			dbid: partnerDbid,
+			id: gift.id,
+			unk1: 0
+		});
+	}
 	
 	function giftPartner() {
 		for (let i = 0; i < giftList.length; i++) {
@@ -110,14 +122,6 @@ module.exports = function PartnerGifter(mod) {
 			}
 		}
 		command.message('<font color="#FDD017">Warning</font>: No gift found in your inventory!');
-	}
-    
-	function useServantFeedItem(gift) {
-		mod.toServer('C_USE_SERVANT_FEED_ITEM', 1, {
-			dbid: partnerDbid,
-			id: gift.id,
-			unk1: 0
-		});
 	}
 	
 	function processGifting(energy) {
