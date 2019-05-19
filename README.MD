@@ -5,7 +5,7 @@ TERA-proxy module for TERA Online. Automatically give gift to your partner and k
 List of in-game commands (use in /proxy or /8 channel):  
 - `partnergifter` - toggles module (default: true)
 - `partnergifter notice` - toggles notice (default: false)
-- `partnergifter find` - finds out the item id of the gift
+- `partnergifter find` - finds out the Item ID of the gift
 
 ## Installation
 - Move files in `defs` into `node_modules\tera-data\protocol\` folder
