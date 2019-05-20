@@ -7,7 +7,7 @@ module.exports = function PartnerGifter(mod) {
 		notice = false,
 		minEnergy = 80;
 	
-	let configError1 = false,
+	let	configError1 = false,
 		configError2 = false;
 		
 	let	myGameId = null,
