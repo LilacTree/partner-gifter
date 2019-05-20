@@ -3,10 +3,10 @@
     "name": "partner-gifter",
     "author": "LilacTree",
     "description": "Automatically gives gift to your partner to keep them happy!",
-    "version": "5/18/2019",
+    "version": "5/19/2019",
     "options": {
-		"niceName": "Partner Gifter",
-		"guiName": "Partner Gifter"
+        "niceName": "Partner Gifter",
+        "guiName": "Partner Gifter"
     },
     "servers": ["https://raw.githubusercontent.com/LilacTree/partner-gifter/master/"],
     "supportUrl": "https://github.com/LilacTree/partner-gifter/issues"

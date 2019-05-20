@@ -2,5 +2,5 @@
 	"enabled": true,
 	"notice": false,
 	"minEnergy": 80,
-	"minEnergy_description": "Automatically gives gift to your partner when their energy is less than 'minEnergy'%"
+	"minEnergy_description": "Automatically gives gift to your partner when their energy is less than 'minEnergy'% (default: 80)"
 }
