@@ -81,7 +81,7 @@ module.exports = function PartnerGifter(mod) {
 	});
 	
 	mod.hook('S_REQUEST_SPAWN_SERVANT', 1, (event) => {
-		if (myGameId === event.owner && event.fellowship >= 1){
+		if (myGameId === event.ownerId && event.fellowship >= 1){
 			partnerDbid = event.dbid;
 			partnerId = event.id;
 			
