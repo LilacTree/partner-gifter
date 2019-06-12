@@ -8,7 +8,8 @@ List of in-game commands (use in /proxy or /8 channel):
 - `partnergifter find` - Finds out the Item ID of the gift
 
 ## Installation
-- Move files in `defs` into `node_modules\tera-data\protocol\` folder
+- Move files in `defs` into the `node_modules\tera-data\protocol\` folder
+- Add opcodes for your region in the `node_modules\tera-data\map\` folder
 
 ## Notes
 - If there are no opcodes for your region, get them yourself using https://github.com/SoliaRdi/PacketsLogger
