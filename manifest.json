@@ -8,16 +8,15 @@
 			"overwrite": false,
 			"hash": "26c14e69ec7c6ad0afcfbae70d686fa234ed6ad2bd908434b9f13505433e4e58"
 		},
-		"index.js": "2e961ffddac12097b72eefe6fb69e63bd584505f9fae78d7bef84418f27c2e3a",
-		"module.json": "8b803e4a2f53e74808042601fe0ca3cb4c88db5672b4b751827b35365dafc8ef",
-		"README.MD": "03f8a0247ea411c672db625bb3834d566b9f71c8a47935433eabe95fef39bc4f"
+		"index.js": "6e9af19c9dd35f67e23b2158ae5fd6235ca8cdca507994de40e3d84443d407d6",
+		"module.json": "4aac5a93e0fa4f9de81c0e6ad8a0e276daa3540eae855b099804d665ec54735d",
+		"README.MD": "5d2882487b34116576ea44b93beecaac4f342f0cde498bae869a65280899c91c"
 	},
 	"defs": {
-		"C_USE_SERVANT_FEED_ITEM": 1,
+		"C_USE_ITEM": 3,
 		"S_INVEN": 18,
 		"S_LOAD_CLIENT_USER_SETTING": "raw",
 		"S_LOGIN": 13,
-		"S_REQUEST_SERVANT_INFO_LIST": "raw",
 		"S_REQUEST_SPAWN_SERVANT": 1,
 		"S_UPDATE_SERVANT_INFO": 1
 	}

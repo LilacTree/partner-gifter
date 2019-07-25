@@ -1,5 +1,6 @@
 module.exports = function PartnerGifter(mod) {
 	const command = mod.command;
+	const Vec3 = require('tera-vec3');
 	const config = require('./config.json');
 	const gifts = require('./gifts');
 	
@@ -11,6 +12,7 @@ module.exports = function PartnerGifter(mod) {
 		configError2 = false;
 		
 	let	myGameId = null,
+		playerLocation = {},
 		invenItems = [],
 		partnerDbid = null,
 		partnerId = null,
@@ -21,6 +23,7 @@ module.exports = function PartnerGifter(mod) {
 		
 	for (let i = 0; i < giftList.length; i++) {
 		giftList[i].amount = 0;
+		giftList[i].dbid = 0;
 	}
 		
 	command.add('partnergifter', {
@@ -65,6 +68,14 @@ module.exports = function PartnerGifter(mod) {
 		});
 	});
 	
+	mod.hook('C_PLAYER_LOCATION', 5, (event) => {
+		let x = (event.loc.x + event.dest.x) / 2;
+        let y = (event.loc.y + event.dest.y) / 2;
+        let z = (event.loc.z + event.dest.z) / 2;
+        playerLocation.loc = new Vec3(x, y, z);
+		playerLocation.w = event.w;
+	});
+	
 	mod.hook('S_INVEN', 18, (event) => {
 		if (!enabled) return;
 		
@@ -73,9 +84,11 @@ module.exports = function PartnerGifter(mod) {
 			if (invenItems.filter(function(a) { return a.id === giftList[i].id; }).length > 0) {
 				let invenIndex = invenItems.findIndex(a => a.id === giftList[i].id);
 				giftList[i].amount = invenItems[invenIndex].amount;
+				giftList[i].dbid = invenItems[invenIndex].dbid;
 			}
 			else {
 				giftList[i].amount = 0;
+				giftList[i].dbid = 0;
 			}
 		}
 	});
@@ -99,26 +112,27 @@ module.exports = function PartnerGifter(mod) {
 		}
 	});
 	
-	mod.hook('S_REQUEST_SERVANT_INFO_LIST', 'raw', () => {
-		if (!enabled) return;
-		
-		if (isGifting) {
-			return false;
-		}
-	});
-	
-	mod.hook('C_USE_SERVANT_FEED_ITEM', 1, (event) => {
+	mod.hook('C_USE_ITEM', 3, (event) => {
 		if (findId){
 			command.message("Item ID: " + event.id);
 			findId = false;
 		}
 	});
-    
-	function useServantFeedItem(gift) {
-		mod.toServer('C_USE_SERVANT_FEED_ITEM', 1, {
-			dbid: partnerDbid,
+	
+	function useServantFeedItem(gift) {	
+		mod.toServer('C_USE_ITEM', 3, {
+			gameId: myGameId,
 			id: gift.id,
-			unk1: 0
+			dbid: gift.dbid,
+			target: 0,
+			amount: 1,
+			dest: 0,
+			loc: playerLocation.loc,
+			w: playerLocation.w,
+			unk1: 0,
+			unk2: 0,
+			unk3: 0,
+			unk4: true
 		});
 	}
 	
